@@ -4,6 +4,7 @@ import com.bridgelabz.BookStore.dto.BookResponseDTO;
 import com.bridgelabz.BookStore.dto.OrderRequestDTO;
 import com.bridgelabz.BookStore.dto.OrdersResponseDTO;
 import com.bridgelabz.BookStore.entity.*;
+import com.bridgelabz.BookStore.mapper.Mapper;
 import com.bridgelabz.BookStore.repo.*;
 import com.bridgelabz.BookStore.service.OrdersService;
 import lombok.extern.slf4j.Slf4j;
@@ -142,15 +143,7 @@ public class OrdersServiceImpl implements OrdersService {
     private List<BookResponseDTO> mapBookToDTO(List<Book> books) {
         return books.stream()
                     .map(book -> {
-                        BookResponseDTO dto = new BookResponseDTO();
-                        dto.setId(book.getId());
-                        dto.setBookName(book.getBookName());
-                        dto.setBookAuthor(book.getBookAuthor());
-                        dto.setBookPrice(book.getBookPrice());
-                        dto.setQuantity(book.getQuantity());
-                        dto.setBookLogo("Book Logo");
-                        dto.setBookDescription(book.getBookDescription());
-                        return dto;
+                        return Mapper.mapBookToResponseDTO(book);
                     }).toList();
     }
 

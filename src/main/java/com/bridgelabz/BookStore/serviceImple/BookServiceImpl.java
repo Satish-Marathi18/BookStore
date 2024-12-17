@@ -97,7 +97,7 @@ public class BookServiceImpl implements BookService {
         bookResponseDTO.setBookPrice(book.getBookPrice());
         bookResponseDTO.setQuantity(book.getQuantity());
         bookResponseDTO.setId(book.getId());
-        bookResponseDTO.setBookLogo(null);
+        bookResponseDTO.setBookLogo("Book Logo");
         return bookResponseDTO;
     }
 

@@ -7,6 +7,7 @@ import com.bridgelabz.BookStore.entity.Book;
 import com.bridgelabz.BookStore.entity.Cart;
 import com.bridgelabz.BookStore.entity.User;
 import com.bridgelabz.BookStore.entity.WishList;
+import com.bridgelabz.BookStore.mapper.Mapper;
 import com.bridgelabz.BookStore.repo.BookRepo;
 import com.bridgelabz.BookStore.repo.CartRepo;
 import com.bridgelabz.BookStore.repo.UserRepository;
@@ -91,21 +92,11 @@ public class WishListServiceImpl implements WishListService {
 
     private WishListResponseDTO mapToDTO(WishList save) {
         WishListResponseDTO wishList = new WishListResponseDTO();
-        wishList.setBook(mapBookToDTO(save.getBook()));
+        wishList.setBook(Mapper.mapBookToResponseDTO(save.getBook()));
         wishList.setUser(save.getUser());
         wishList.setIsAvailable(save.getAvailable()?"Available":"Currently not available");
         return wishList;
     }
 
-    private BookResponseDTO mapBookToDTO(Book book) {
-                    BookResponseDTO dto = new BookResponseDTO();
-                    dto.setId(book.getId());
-                    dto.setBookName(book.getBookName());
-                    dto.setBookAuthor(book.getBookAuthor());
-                    dto.setBookPrice(book.getBookPrice());
-                    dto.setQuantity(book.getQuantity());
-                    dto.setBookLogo("Book Logo");
-                    dto.setBookDescription(book.getBookDescription());
-                    return dto;
-    }
+
 }
