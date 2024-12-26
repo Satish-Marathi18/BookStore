@@ -3,8 +3,7 @@ package com.bridgelabz.BookStore.dto;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class JWTTokenDTO {
     private String token;
 
@@ -12,7 +11,15 @@ public class JWTTokenDTO {
         return token;
     }
 
+    public JWTTokenDTO() {
+    }
+
+    public JWTTokenDTO(String token) {
+        this.token = token;
+    }
+
     public void setToken(String token) {
         this.token = token;
     }
+
 }

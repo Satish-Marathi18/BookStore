@@ -102,7 +102,6 @@ public class OrdersServiceImpl implements OrdersService {
             throw new RuntimeException(" Order is already cancelled");
         }
         List<OrderedBooks> orderedBooksList = orderedBooksRepo.findByOrder(order);
-        log.info("inside cancel" +orderedBooksList);
         orderedBooksList.forEach(orderedBook -> {
             Book book = orderedBook.getBook();
             book.setQuantity(book.getQuantity() + orderedBook.getQuantity());
