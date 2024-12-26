@@ -44,7 +44,7 @@ public class UserController {
 
     @GetMapping("/test")
     public ResponseEntity<String> test() {
-        return new ResponseEntity<>("Testing successful.",HttpStatus.OK);
+        return new ResponseEntity<>("Testing successful....",HttpStatus.OK);
     }
 
 
