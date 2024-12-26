@@ -38,9 +38,15 @@ public class UserController {
     }
 
     @GetMapping("/forgotpassword/{email}")
-    private ResponseEntity<String> forgotPassword(@PathVariable String email) {
+    public ResponseEntity<String> forgotPassword(@PathVariable String email) {
         return new ResponseEntity<>(userService.forgotPassword(email), HttpStatus.OK);
     }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        return new ResponseEntity<>("Testing successful.",HttpStatus.OK);
+    }
+
 
 
 }
